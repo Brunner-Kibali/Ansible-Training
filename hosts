@@ -1,0 +1,16 @@
+[arista-eos]
+
+Aristavm1 ansible_host=10.10.10.2 
+
+Aristavm2 ansible_host=10.10.10.3 
+
+Aristavm3 ansible_host=10.10.10.4
+
+
+[arista-eos:vars]
+
+ansible_network_os=eos
+
+ansible_user=admin 
+
+ansible_password=admin

@@ -1,0 +1,51 @@
+- name: RUN SHOW COMMANDS AND PRINT TO TERMINAL WINDOW
+
+  hosts: "arista-eos"
+
+  gather_facts: false
+
+  connection: network_cli 
+        
+  tasks:
+    
+     - name: show interfaces task
+
+       cli_command:
+
+          command: show ip interface brief
+
+       register: result
+
+     - name: print to terminal window
+
+       debug:
+          var: result.stdout_lines
+     
+
+     - name: show version task
+
+       cli_command:
+
+          command: show version | i Arista
+
+       register: result
+       
+     - name: print to terminal window
+
+       debug:
+          var: result.stdout_lines
+
+
+     - name: show hostname task
+
+       cli_command:
+
+          command: show hostname
+
+       register: result
+
+     - name: print to terminal window
+
+       debug:
+          var: result.stdout_lines
+
